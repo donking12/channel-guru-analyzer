@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { LineChart, Users, TrendingUp, Video } from 'lucide-react';
+import { LineChart, Users, TrendingUp, Video, Youtube as YoutubeIcon } from 'lucide-react';
 
 interface ChannelCardProps {
   channel: {
@@ -47,7 +46,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({
                 className="w-full h-full object-cover"
               />
             ) : (
-              <Youtube className="h-10 w-10 text-muted-foreground" />
+              <YoutubeIcon className="h-10 w-10 text-muted-foreground" />
             )}
           </div>
         </div>
@@ -104,7 +103,6 @@ const ChannelCard: React.FC<ChannelCardProps> = ({
   );
 };
 
-// Helper function to format numbers
 function formatNumber(num: number): string {
   if (num >= 1000000) {
     return (num / 1000000).toFixed(1) + 'M';

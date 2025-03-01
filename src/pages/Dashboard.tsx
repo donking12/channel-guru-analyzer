@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -18,7 +17,6 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
   
-  // Get channel ID from URL query parameter if present
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const channelParam = params.get('channel');
@@ -32,7 +30,6 @@ const Dashboard = () => {
   const loadChannelData = (id: string) => {
     setIsLoading(true);
     
-    // Simulate loading data
     setTimeout(() => {
       setIsLoading(false);
       
@@ -46,7 +43,6 @@ const Dashboard = () => {
   const handleChannelSelect = (id: string) => {
     setChannelId(id);
     
-    // Update URL with the new channel ID without full page reload
     const url = new URL(window.location.href);
     url.searchParams.set('channel', id);
     window.history.pushState({}, '', url);
@@ -54,7 +50,6 @@ const Dashboard = () => {
     loadChannelData(id);
   };
 
-  // Dummy data
   const viewsData = [
     { date: 'Jan', views: 45000 },
     { date: 'Feb', views: 52000 },
@@ -93,7 +88,7 @@ const Dashboard = () => {
     {
       title: 'Optimize Video Length',
       description: 'Your 10-15 minute videos perform 43% better than shorter or longer content. Consider focusing on this duration for future uploads.',
-      type: 'content',
+      type: 'content' as const,
       impact: 'high' as const,
     },
     {
@@ -122,7 +117,6 @@ const Dashboard = () => {
       
       <main className="pt-24 pb-16 px-4 md:px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Channel Search */}
           <div className="mb-8">
             <SearchChannel 
               onChannelSelect={handleChannelSelect}
@@ -130,7 +124,6 @@ const Dashboard = () => {
             />
           </div>
           
-          {/* Channel Overview */}
           {channelId ? (
             <div className="animate-fade-in">
               {isLoading ? (
@@ -144,7 +137,6 @@ const Dashboard = () => {
                 </div>
               ) : (
                 <>
-                  {/* Channel Info Card */}
                   <Card className="mb-8 border-[1.5px] overflow-hidden glass-panel">
                     <CardContent className="p-6">
                       <div className="flex flex-col md:flex-row gap-6 items-center">
@@ -177,7 +169,6 @@ const Dashboard = () => {
                     </CardContent>
                   </Card>
                   
-                  {/* Key Metrics */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
                     <PerformanceMetric
                       title="Total Views"
@@ -209,7 +200,6 @@ const Dashboard = () => {
                     />
                   </div>
                   
-                  {/* Tab Content */}
                   <Tabs defaultValue="overview" className="mb-8">
                     <TabsList className="grid w-full grid-cols-3 mb-8">
                       <TabsTrigger 
@@ -308,7 +298,6 @@ const Dashboard = () => {
                     </TabsContent>
                   </Tabs>
                   
-                  {/* Improvement Insights */}
                   <div>
                     <h2 className="text-2xl font-bold mb-6">Improvement Insights</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

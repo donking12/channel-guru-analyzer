@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import SearchChannel from '@/components/SearchChannel';
 import ChannelCard from '@/components/ChannelCard';
 import Navigation from '@/components/Navigation';
-import { ChevronRight, TrendingUp, LineChart, BarChart } from 'lucide-react';
+import { ChevronRight, TrendingUp, LineChart, BarChart, Settings } from 'lucide-react';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -74,6 +74,19 @@ const Index = () => {
               onChannelSelect={handleChannelSelect}
               placeholder="Enter a YouTube channel URL" 
             />
+          </div>
+          
+          {/* Settings button */}
+          <div className="mt-4">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={() => navigate('/settings')}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <Settings className="h-4 w-4 mr-2" />
+              Configure API Key
+            </Button>
           </div>
         </div>
       </section>

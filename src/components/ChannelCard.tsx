@@ -3,7 +3,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { LineChart, Users, TrendingUp, Video, Youtube as YoutubeIcon } from 'lucide-react';
+import { LineChart, Users, TrendingUp, Video, Youtube } from 'lucide-react';
 
 interface ChannelCardProps {
   channel: {
@@ -47,7 +47,7 @@ const ChannelCard: React.FC<ChannelCardProps> = ({
                 className="w-full h-full object-cover"
               />
             ) : (
-              <YoutubeIcon className="h-10 w-10 text-muted-foreground" />
+              <Youtube className="h-10 w-10 text-muted-foreground" />
             )}
           </div>
         </div>

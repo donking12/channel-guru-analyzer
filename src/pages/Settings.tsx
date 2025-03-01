@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { SaveIcon, KeyIcon, EyeIcon, EyeOffIcon } from 'lucide-react';
+import { Save, Key, Eye, EyeOff } from 'lucide-react';
 import Navigation from '@/components/Navigation';
-import { useToast } from '@/hooks/use-toast';
+import { useToast } from '@/components/ui/use-toast';
 
 const Settings = () => {
   const [apiKey, setApiKey] = useState<string>('');
@@ -72,7 +72,7 @@ const Settings = () => {
         
         <div className="glass-panel p-6 bg-card rounded-lg border shadow-sm">
           <h2 className="text-xl font-semibold mb-4 flex items-center">
-            <KeyIcon className="mr-2 h-5 w-5" />
+            <Key className="mr-2 h-5 w-5" />
             YouTube API Configuration
           </h2>
           
@@ -103,7 +103,7 @@ const Settings = () => {
                   onClick={() => setShowKey(!showKey)}
                   aria-label={showKey ? "Hide API key" : "Show API key"}
                 >
-                  {showKey ? <EyeOffIcon className="h-4 w-4" /> : <EyeIcon className="h-4 w-4" />}
+                  {showKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </Button>
               </div>
               {apiKey && !showKey && (
@@ -118,7 +118,7 @@ const Settings = () => {
               disabled={isSaving}
               className="flex items-center"
             >
-              <SaveIcon className="mr-2 h-4 w-4" />
+              <Save className="mr-2 h-4 w-4" />
               {isSaving ? "Saving..." : "Save API Key"}
             </Button>
             
